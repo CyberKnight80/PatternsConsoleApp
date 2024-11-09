@@ -74,6 +74,40 @@ namespace PatternsConsoleApp
             stepA.Success("Did astral step");
         }
 
+        public static void Mediator()
+        {
+            Headman headman = new Headman();
+            Student student = new Student();
+            student.headman = headman;
+            Teacher teacher = new Teacher();
+            teacher.headman = headman;
+
+            student.Notice("Ya progulyau");
+            student.Notice("Ya zabolel");
+            student.Notice("Ya rabotau");
+
+            teacher.Notice("Ya ne pridu");
+            teacher.Notice("Zavtra kr");
+            teacher.Notice("Posle zavtra pari ne budet");
+
+            List<string> data = student.GetNotice();
+
+            PrintList(data);
+
+            data = teacher.GetNotice();
+
+            PrintList(data);
+        }
+
+        public static void PrintList(List<string> data)
+        {
+            foreach (string item in data)
+            {
+                Console.WriteLine(item);    
+            }
+            Console.WriteLine();
+        }
+
         static void Main(string[] args)
         {
             //Strategy();
@@ -88,7 +122,9 @@ namespace PatternsConsoleApp
 
             //State();
 
-            ResponsabilityChain();
+            //ResponsabilityChain();
+            Mediator();
+
         }
     }
 }

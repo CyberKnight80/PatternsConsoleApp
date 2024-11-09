@@ -15,9 +15,9 @@ namespace PatternsConsoleApp
             headman.NoticeStudent(data);
         }
 
-        public void GetNotice(string data)
+        public List<string> GetNotice()
         {
-            headman.GetNoticeStudent();
+            return headman.GetNoticeTeacher();
         }
     }
 
@@ -31,22 +31,16 @@ namespace PatternsConsoleApp
             messagesForTeacher.Add(data);
         }
 
-        public List<string> GetNoticeTeacher(string data)
+        public List<string> GetNoticeTeacher()
         {
             try
             {
                 return messagesForTeacher;
             }
-            catch
-            {
-
-            }
-
             finally
             {
-                messagesForStudent = new List<string>();
+                messagesForTeacher = new List<string>();
             }
-            return null;
         }
 
         public void NoticeStudent(string data)
@@ -60,16 +54,10 @@ namespace PatternsConsoleApp
             {
                 return messagesForStudent;
             }
-            catch
-            {
-
-            }
-
             finally
             {
                 messagesForStudent = new List<string>();  
             }
-            return null;
         }
     }
 
