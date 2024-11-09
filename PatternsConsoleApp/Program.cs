@@ -123,8 +123,8 @@ namespace PatternsConsoleApp
             //State();
 
             //ResponsabilityChain();
-            Mediator();
 
+            //Mediator();
         }
     }
 }
