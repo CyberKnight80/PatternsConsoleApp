@@ -152,7 +152,7 @@ namespace PatternsConsoleApp
 
             //Mediator();
 
-            Memento();
+            //Memento();
         }
     }
 }
