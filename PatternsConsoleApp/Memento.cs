@@ -12,6 +12,11 @@ namespace PatternsConsoleApp
         {
             return new object();
         }
+
+        public void SaveState(object obj)
+        {
+
+        }
     }
 
     public class Hero
@@ -44,6 +49,11 @@ namespace PatternsConsoleApp
             {
                 Console.WriteLine("Game ended.");
             }
+        }
+
+        public void Save()
+        {
+            memento.SaveState(new object());
         }
 
         public void LoadLastSave()
