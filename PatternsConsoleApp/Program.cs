@@ -1,4 +1,6 @@
-﻿namespace PatternsConsoleApp
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace PatternsConsoleApp
 {
     public class Program
     {
@@ -53,6 +55,25 @@
             }
         }
 
+        public static void State()
+        {
+            Water bonAqua = new Water();
+
+            bonAqua.WarmUp();
+            bonAqua.WarmUp();
+            bonAqua.WarmUp();
+        }
+
+        public static void ResponsabilityChain()
+        {
+            StepA stepA = new StepA();
+            StepB stepB = new StepB();
+
+            stepA.NextStep = stepB;
+
+            stepA.Success("Did astral step");
+        }
+
         static void Main(string[] args)
         {
             //Strategy();
@@ -63,7 +84,11 @@
 
             //Template();
 
-            Iterator();
+            //Iterator();
+
+            //State();
+
+            ResponsabilityChain();
         }
     }
 }
