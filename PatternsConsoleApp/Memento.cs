@@ -8,18 +8,20 @@ namespace PatternsConsoleApp
 {
     public class Memento
     {
+        private object lastSave;
+
         public object GetLastState()
         {
-            return new object();
+            return lastSave as object;
         }
 
         public void SaveState(object obj)
         {
-
+            lastSave = obj as object;
         }
     }
 
-    public class Hero
+    public class Hero : ICloneable
     {
         Memento memento = new Memento();
 
@@ -34,8 +36,10 @@ namespace PatternsConsoleApp
                 BulletNumber--;
                 Console.WriteLine("FIRE FIRE");
             }
-
-            Console.WriteLine("Not enough ammo");
+            else
+            {
+                Console.WriteLine("Not enough ammo");
+            }
         }
 
         public void FallDown()
@@ -53,12 +57,23 @@ namespace PatternsConsoleApp
 
         public void Save()
         {
-            memento.SaveState(new object());
+            memento.SaveState(this.Clone());
         }
 
         public void LoadLastSave()
         {
-            memento.GetLastState();
+            Hero save = memento.GetLastState() as Hero;
+
+            this.BulletNumber = save.BulletNumber;
+            this.HealthNumber = save.HealthNumber;
+        }
+
+        public object Clone()
+        {
+            Hero hero = new Hero();
+            hero.BulletNumber = BulletNumber;
+            hero.HealthNumber = HealthNumber;
+            return hero;
         }
     }
 }

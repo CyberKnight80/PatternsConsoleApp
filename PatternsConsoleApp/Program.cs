@@ -108,6 +108,32 @@ namespace PatternsConsoleApp
             Console.WriteLine();
         }
 
+        public static void Memento()
+        {
+            Hero hero = new Hero();
+            hero.BulletNumber = 30;
+            hero.HealthNumber = 20;
+
+            hero.Save();
+
+            hero.FallDown();
+
+            hero.Fire();
+            hero.Fire();
+            hero.Fire();
+            hero.Fire();
+            hero.Fire();
+            hero.Fire();
+
+            Console.WriteLine(hero.BulletNumber);
+            Console.WriteLine(hero.HealthNumber);
+
+            hero.LoadLastSave();
+
+            Console.WriteLine(hero.BulletNumber);
+            Console.WriteLine(hero.HealthNumber);
+        }
+
         static void Main(string[] args)
         {
             //Strategy();
@@ -125,6 +151,8 @@ namespace PatternsConsoleApp
             //ResponsabilityChain();
 
             //Mediator();
+
+            Memento();
         }
     }
 }
