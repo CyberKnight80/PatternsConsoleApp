@@ -133,7 +133,26 @@ namespace PatternsConsoleApp
             Console.WriteLine(hero.BulletNumber);
             Console.WriteLine(hero.HealthNumber);
         }
+        static void Decorator()
+        {
+            Computer computer = new Computer();
+            computer.RunGame();
+            ComputerDecorator computerDecorator = new ComputerDecorator(computer);
+            computerDecorator.RunGame();
+        }
 
+        public static void Facade()
+        {
+            MotherBoard motherBoard = ComputerFacade.Build1();
+            motherBoard.Start();
+        }
+        static void Composer()
+        {
+            ComposerPattern composer = new ComposerPattern();
+            Node palm = composer.ComposePalmTree();
+            Node pine = composer.ComposePineTree();
+        }
+        
         static void Main(string[] args)
         {
             //Strategy();
@@ -153,6 +172,12 @@ namespace PatternsConsoleApp
             //Mediator();
 
             //Memento();
+
+            //Decorator();
+
+            //Facade();
+
+            //Composer();
         }
     }
 }
