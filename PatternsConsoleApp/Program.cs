@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using PatternsConsoleApp.ProxyPattern;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PatternsConsoleApp
 {
@@ -152,7 +153,19 @@ namespace PatternsConsoleApp
             Node palm = composer.ComposePalmTree();
             Node pine = composer.ComposePineTree();
         }
+
+        static void ProxyPattern()
+        {
+            ProxyPattern.Student testSt = new ProxyPattern.Student();
+            testSt.GetWeather();
+        }
         
+        static void BridgePattern()
+        {
+            BridgePattern.Student st = new BridgePattern.Student();
+            st.GoTo("Globus");
+        }
+
         static void Main(string[] args)
         {
             //Strategy();
@@ -178,6 +191,10 @@ namespace PatternsConsoleApp
             //Facade();
 
             //Composer();
+
+            // ProxyPattern();
+
+            BridgePattern();
         }
     }
 }
